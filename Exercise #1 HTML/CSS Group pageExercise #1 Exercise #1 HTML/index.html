@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Meet Our Team</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html,body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e293b,#2563eb);
+    min-height:100vh;
+    color:white;
+}
+
+
+/* HEADER */
+
+header{
+    width:100%;
+    text-align:center;
+    padding:70px 20px 30px;
+}
+
+header h1{
+    font-size:48px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+header p{
+    color:#d1d5db;
+    font-size:18px;
+}
+
+
+/* TEAM GRID */
+
+.team{
+
+    width:92%;
+    max-width:1500px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,minmax(260px,1fr));
+
+    gap:25px;
+
+    padding-bottom:70px;
+}
+
+
+/* CENTER LAST TWO */
+
+.card:nth-child(5){
+    grid-column:2;
+}
+
+.card:nth-child(6){
+    grid-column:3;
+}
+
+
+/* CARD */
+
+.card{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:25px;
+
+    padding:30px 25px;
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+
+.card:hover{
+
+    transform:translateY(-12px) scale(1.02);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+
+}
+
+
+/* PROFILE IMAGE */
+
+.card img{
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:5px solid white;
+
+    margin-bottom:20px;
+
+}
+
+
+/* TEXT */
+
+.card h2{
+
+    font-size:24px;
+
+    margin-bottom:6px;
+
+}
+
+
+.role{
+
+    color:#60a5fa;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+
+.info{
+
+    text-align:left;
+
+    line-height:1.8;
+
+    color:#e5e7eb;
+
+    margin-bottom:20px;
+
+    font-size:14px;
+
+    overflow-wrap:anywhere;
+
+}
+
+
+
+/* SKILLS */
+
+.skill{
+
+    display:inline-block;
+
+    background:#2563eb;
+
+    padding:7px 15px;
+
+    margin:4px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+}
+
+
+/* SOCIAL */
+
+.social{
+
+    margin-top:15px;
+
+}
+
+
+.social a{
+
+    text-decoration:none;
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.3);
+
+    padding:10px 16px;
+
+    border-radius:30px;
+
+    display:inline-block;
+
+    transition:.3s;
+
+}
+
+
+.social a:hover{
+
+    background:white;
+
+    color:#2563eb;
+
+}
+
+
+/* FOOTER */
+
+footer{
+
+    text-align:center;
+
+    padding:25px;
+
+    color:#cbd5e1;
+
+    background:rgba(0,0,0,.25);
+
+}
+
+
+/* TABLET */
+
+@media(max-width:1100px){
+
+    .team{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+    .card:nth-child(5),
+    .card:nth-child(6){
+
+        grid-column:auto;
+
+    }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    header h1{
+
+        font-size:36px;
+
+    }
+
+
+    header p{
+
+        font-size:15px;
+
+    }
+
+
+    .team{
+
+        grid-template-columns:1fr;
+
+        width:90%;
+
+    }
+
+
+    .card img{
+
+        width:140px;
+
+        height:140px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>Meet Our Team</h1>
+
+<p>BS Information Technology | Web Technology Project</p>
+
+</header>
+
+
+<div class="team">
+
+
+<!-- MEMBER 1 -->
+
+<div class="card">
+
+<img src="./Images/member1.jpg" alt="Alexander Hugo" loading="lazy">
+
+<h2>Alexander Hugo</h2>
+
+<div class="role">Team Leader</div>
+
+<div class="info">
+
+<b>Course:</b> BS Information Technology<br>
+
+<b>Year:</b> 3rd Year<br>
+
+<b>Email:</b> hugoalexander_bsit@plmun.edu.ph
+
+</div>
+
+
+<div>
+
+<span class="skill">Python</span>
+<span class="skill">HTML</span>
+<span class="skill">CSS</span>
+<span class="skill">Java</span>
+<span class="skill">C++</span>
+
+</div>
+
+
+<div class="social">
+
+<a href="https://www.facebook.com/alexander.hugo.54390" target="_blank">
+Facebook
+</a>
+
+</div>
+
+</div>
+
+
+<!-- MEMBER 2 -->
+
+<div class="card">
+
+<img src="./Images/member2.jpg" alt="Jasper Leonardo" loading="lazy">
+
+<h2>Jasper Leonardo</h2>
+
+<div class="role">Front-end Developer</div>
+
+<div class="info">
+
+<b>Course:</b> BSIT<br>
+
+<b>Year:</b> 3rd Year<br>
+
+<b>Email:</b> leonardojasper_bsit@plmun.edu.ph
+
+</div>
+
+
+<div>
+
+<span class="skill">HTML</span>
+<span class="skill">CSS</span>
+<span class="skill">JavaScript</span>
+
+</div>
+
+
+<div class="social">
+
+<a href="https://www.facebook.com/truabnessy" target="_blank">
+Facebook
+</a>
+
+</div>
+
+</div>
+<!-- MEMBER 3 -->
+
+<div class="card">
+
+<img src="./Images/member3.jpg" alt="Jefferson Lumbo" loading="lazy">
+
+<h2>Jefferson Lumbo</h2>
+
+<div class="role">Back-end Developer</div>
+
+
+<div class="info">
+
+<b>Course:</b> BSIT<br>
+
+<b>Year:</b> 3rd Year<br>
+
+<b>Email:</b> lumbojefferson_bsit@plmun.edu.ph
+
+</div>
+
+
+<div>
+
+<span class="skill">PHP</span>
+<span class="skill">MySQL</span>
+<span class="skill">Java</span>
+
+</div>
+
+
+<div class="social">
+
+<a href="https://www.facebook.com/lumbojefferson" target="_blank">
+Facebook
+</a>
+
+</div>
+
+</div>
+
+
+
+
+<!-- MEMBER 4 -->
+
+<div class="card">
+
+<img src="./Images/member4.jpg" alt="Mark Laurence Marquez" loading="lazy">
+
+<h2>Mark Laurence Marquez</h2>
+
+<div class="role">UI/UX Designer</div>
+
+
+<div class="info">
+
+<b>Course:</b> BSIT<br>
+
+<b>Year:</b> 3rd Year<br>
+
+<b>Email:</b> marquezmarklaurence_bsit@plmun.edu.ph
+
+</div>
+
+
+<div>
+
+<span class="skill">Figma</span>
+<span class="skill">Photoshop</span>
+
+</div>
+
+
+<div class="social">
+
+<a href="https://www.facebook.com/launzz.mrk" target="_blank">
+Facebook
+</a>
+
+</div>
+
+</div>
+
+
+
+
+<!-- MEMBER 5 -->
+
+<div class="card">
+
+<img src="./Images/member5.jpg" alt="Lanz Evasco" loading="lazy">
+
+<h2>Lanz Evasco</h2>
+
+<div class="role">Documentation</div>
+
+
+<div class="info">
+
+<b>Course:</b> BSIT<br>
+
+<b>Year:</b> 3rd Year<br>
+
+<b>Email:</b> evascolanzronan_bsit@plmun.edu.ph
+
+</div>
+
+
+<div>
+
+<span class="skill">MS Word</span>
+<span class="skill">Research</span>
+
+</div>
+
+
+<div class="social">
+
+<a href="https://www.facebook.com/lanzronanalmeida.evasco" target="_blank">
+Facebook
+</a>
+
+</div>
+
+</div>
+
+
+
+
+<!-- MEMBER 6 -->
+
+<div class="card">
+
+<img src="./Images/member6.jpg" alt="Genesis Engay" loading="lazy">
+
+<h2>Genesis Engay</h2>
+
+<div class="role">Quality Assurance</div>
+
+
+<div class="info">
+
+<b>Course:</b> BSIT<br>
+
+<b>Year:</b> 3rd Year<br>
+
+<b>Email:</b> engaygenesisreymark_bsit@plmun.edu.ph
+
+</div>
+
+
+<div>
+
+<span class="skill">Testing</span>
+<span class="skill">Documentation</span>
+
+</div>
+
+
+<div class="social">
+
+<a href="https://www.facebook.com/genesisreymark.litigar" target="_blank">
+Facebook
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<footer>
+
+Designed by BSIT Students • Web Technology Project © 2026
+
+</footer>
+
+
+</body>
+
+</html>
