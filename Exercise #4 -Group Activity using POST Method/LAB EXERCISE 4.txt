@@ -1,0 +1,40 @@
+// POST METHOD
+<!DOCTYPE html>
+<html>
+<head>
+    <title>POST Form</title>
+</head>
+
+<body>
+
+<form action="welcome_post.php" method="post">
+
+    Name: <input type="text" name="name"><br>
+    Year/Course: <input type="text" name="year"><br>
+    Section: <input type="text" name="section"><br>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+
+$name = $_POST["name"];
+$year = $_POST["year"];
+$section = $_POST["section"];
+
+echo "Welcome, " . $name . "!<br>";
+echo "Year/Course: " . $year . "<br>";
+echo "Section: " . $section;
+
+?>
+
+</body>
+</html>
