@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fetch API Demo</title>
+  <style>
+    body    { font-family: system-ui, sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+    button  { padding: .6rem 1rem; cursor: pointer; margin-right: .5rem; }
+    #output { margin-top: 1.25rem; padding: 1rem; border: 1px solid #ddd; border-radius: 6px; min-height: 3rem; }
+    .error  { color: #c00; }
+  </style>
+</head>
+<body>
+
+  <!-- TASK 1: heading, buttons, and output div -->
+  <h1>Fetch API Demo</h1>
+
+  <button id="loadBtn">Load Post Data</button>
+  <button id="postBtn">Create New Post</button>
+  <div id="output"></div>
+
+  <script>
+    const loadBtn = document.getElementById('loadBtn');
+    const postBtn = document.getElementById('postBtn');
+    const output  = document.getElementById('output');
+
+    // Show an error message in red inside the output div
+    function showError(message) {
+      output.innerHTML = '';
+      const span = document.createElement('span');
+      span.className = 'error';
+      span.textContent = message;
+      output.appendChild(span);
+    }
+
+    // Show a bold label followed by a value, one per line
+    function showLines(lines) {
+      output.innerHTML = '';
+      lines.forEach(function (line) {
+        const p = document.createElement('p');
+        const label = document.createElement('strong');
+        label.textContent = line[0];
+        p.append(label, ' ' + line[1]);
+        output.appendChild(p);
+      });
+    }
+
+    // ---------- TASK 2: GET request ----------
+    loadBtn.addEventListener('click', function () {
+      output.textContent = 'Loading...';
+
+      fetch('https://jsonplaceholder.typicode.com/posts/1')
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error('Server error: ' + response.status + ' ' + response.statusText);
+          }
+          return response.json();
+        })
+        .then(function (post) {
+          showLines([
+            ['Post Title:', post.title],
+            ['Content:', post.body]
+          ]);
+        })
+        .catch(function (error) {
+          showError('Error: ' + error.message);
+        });
+    });
+
+    // ---------- TASK 3: POST request ----------
+    postBtn.addEventListener('click', function () {
+      output.textContent = 'Sending...';
+
+      fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: 'My New Post',
+          body: 'Learning Fetch API is fun!',
+          userId: 1
+        })
+      })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error('Server error: ' + response.status + ' ' + response.statusText);
+          }
+          return response.json();
+        })
+        .then(function (data) {
+          showLines([
+            ['New Post Created!', ''],
+            ['Post ID:', data.id]
+          ]);
+        })
+        .catch(function (error) {
+          showError('Error: ' + error.message);
+        });
+    });
+  </script>
+</body>
+</html>

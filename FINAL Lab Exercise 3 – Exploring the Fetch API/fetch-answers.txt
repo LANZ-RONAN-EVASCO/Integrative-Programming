@@ -1,0 +1,36 @@
+Guide Questions
+
+1. What are the main differences between XMLHttpRequest and Fetch API?
+
+XMLHttpRequest uses an object with event handlers (onload, onreadystatechange)
+and you must check readyState and status yourself. Fetch is promise-based, so
+it uses .then() and .catch() instead of callbacks and needs much less code.
+Fetch also splits the work into clear steps: the response object first, then
+response.json() to read the data. One important difference is that fetch does
+not reject on HTTP errors such as 404 or 500; you have to check response.ok.
+It only rejects on network failures. XMLHttpRequest reports both through its
+status and error events.
+
+2. Why is the Fetch API considered more modern and readable?
+
+It uses promises, so the code reads from top to bottom as a chain of steps
+instead of nested callbacks. A request is a single fetch(url, options) call,
+with no need to create an object, call open(), and then send(). It also works
+well with async/await, which makes asynchronous code look almost like normal
+code.
+
+3. What is the purpose of the .then() and .catch() methods in Fetch?
+
+.then() runs when the previous step succeeds and receives its result. It is
+chained to first convert the response to JSON (response.json()) and then to use
+the data, such as displaying it on the page. .catch() runs if any step in the
+chain fails, for example a network error or an error thrown by the code, so
+errors can be handled in one place, such as showing an error message.
+
+4. What happens when you send a POST request to the placeholder API?
+
+The request sends the JSON data (title, body, userId) to the server. JSONPlaceholder
+is a fake API, so it does not really save the data. It only pretends to create
+the post and replies with status 201 (Created) and a JSON object that contains
+the data you sent plus a new id, which is 101. If you request the post with that
+id afterwards, it will not exist on the server.	
