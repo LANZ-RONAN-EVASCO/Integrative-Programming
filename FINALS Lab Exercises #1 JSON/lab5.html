@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 5: PHP + JSON + AJAX</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 420px; margin: 3rem auto; padding: 0 1rem; }
+    label, input, button { display: block; width: 100%; box-sizing: border-box; }
+    input { padding: .6rem; margin: .25rem 0 1rem; }
+    button { padding: .7rem; cursor: pointer; }
+    #result { margin-top: 1.5rem; padding: 1rem; background: #f3f3f3; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Welcome form</h1>
+
+  <form id="myForm">
+    <label for="name">Your name</label>
+    <input type="text" id="name" required>
+    <button type="submit">Send</button>
+  </form>
+
+  <div id="result">Response will appear here.</div>
+
+  <script>
+    document.getElementById('myForm').addEventListener('submit', function (e) {
+      e.preventDefault();                      // stop page reload
+
+      const payload = { name: document.getElementById('name').value };
+
+      fetch('lab5_process.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)          // JS object -> JSON string
+      })
+        .then(res => res.json())               // JSON string -> JS object
+        .then(data => {
+          document.getElementById('result').innerHTML =
+            '<strong>Raw JSON:</strong> ' + JSON.stringify(data) +
+            '<br><strong>Message:</strong> ' + data.message;
+        })
+        .catch(err => {
+          document.getElementById('result').textContent = 'Error: ' + err;
+        });
+    });
+  </script>
+</body>
+</html>
