@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>XHR Demo</title>
+  <style>
+    body    { font-family: system-ui, sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+    button  { padding: .6rem 1rem; cursor: pointer; }
+    #output { margin-top: 1.25rem; padding: 1rem; border: 1px solid #ddd; border-radius: 6px; min-height: 3rem; }
+    .error  { color: #c00; }
+  </style>
+</head>
+<body>
+
+  <h1>XMLHttpRequest Demo</h1>
+
+  <button id="loadBtn">Load Post Data</button>
+  <div id="output"></div>
+
+  <script>
+    const loadBtn = document.getElementById('loadBtn');
+    const output  = document.getElementById('output');
+
+    // Show an error message inside the output div
+    function showError(message) {
+      output.innerHTML = '';
+      const span = document.createElement('span');
+      span.className = 'error';
+      span.textContent = message;
+      output.appendChild(span);
+    }
+
+    loadBtn.addEventListener('click', function () {
+      output.textContent = 'Loading...';
+
+      // 1. Create the XMLHttpRequest object
+      const xhr = new XMLHttpRequest();
+
+      // 2. Open a GET request
+      xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts/1', true);
+
+      // 3. The server replied (any status code)
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          const post = JSON.parse(xhr.responseText);   // JSON string -> object
+
+          output.innerHTML = '';
+          const title = document.createElement('p');
+          const body  = document.createElement('p');
+          title.innerHTML = '<strong>Post Title:</strong> ';
+          body.innerHTML  = '<strong>Content:</strong> ';
+          title.append(post.title);
+          body.append(post.body);
+          output.append(title, body);
+        } else {
+          showError('Error: ' + xhr.status + ' - ' + xhr.statusText);
+        }
+      };
+
+      // 4. The request never reached the server (no internet, blocked, etc.)
+      xhr.onerror = function () {
+        showError('Network error: the request could not be completed.');
+      };
+
+      // 5. Send it
+      xhr.send();
+    });
+  </script>
+</body>
+</html>

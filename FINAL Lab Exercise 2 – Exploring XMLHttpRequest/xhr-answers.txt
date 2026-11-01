@@ -1,0 +1,26 @@
+Task 3: Answer the Guide Questions
+
+1. What is the difference between readyState and status in XMLHttpRequest?
+
+readyState shows the current stage of the request, as a number from 0 to 4
+(0 = unsent, 1 = opened, 2 = headers received, 3 = loading, 4 = done).
+status is the HTTP status code returned by the server, such as 200 (OK) or
+404 (Not Found). In short, readyState tells whether the request has finished,
+and status tells whether it succeeded. They are usually checked together:
+readyState === 4 and status === 200.
+
+2. How can you make the request asynchronous?
+
+Pass true as the third argument of open():
+
+  xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+
+Then handle the response in an event such as onload or onreadystatechange,
+so the code runs when the reply arrives instead of waiting for it.
+
+3. Why is asynchronous communication recommended for web applications?
+
+The browser keeps working while it waits for the server, so the page does not
+freeze. Users can keep scrolling, clicking, and typing, and only the needed
+part of the page is updated without a full reload. This makes the application
+faster and smoother, and it allows loading messages and error handling.
