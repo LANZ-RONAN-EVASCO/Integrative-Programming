@@ -1,0 +1,8 @@
+REFLECTION: HANDS ON XML CREATION AND VALIDATION
+This activity helped me to understand how to produce an XML document using Visual Studio Code and how to utilize XML elements for arranging data associated with students. 
+I understood that XML is characterized by the requirement to implement the right opening and closing tags, correct order of the tags, and presence of a single root element for the properly shaped document. 
+When it came to validation, I experienced the 403 Forbidden problem while attempting to open the site where XML validation can be performed. 
+This gave me an understanding that website access problems can sometimes be caused by the fact that the code used is not correct. 
+I also understood the importance of syntax checking in XML for the purpose of finding any errors and confirming that any document is well formed.
+This was the overall result of this activity which contributed to my knowledge of XML structure and syntax as well as application of XML usage in the organization and exchange of information.
+
