@@ -1,0 +1,32 @@
+/* Admin pop-up alerts. Uses the colour tokens from style.css. */
+.alert-stack{position:fixed;right:1rem;bottom:5.2rem;z-index:95;display:flex;flex-direction:column;gap:.6rem;width:min(380px,calc(100% - 2rem));pointer-events:none}
+.alert-toast{pointer-events:auto;display:flex;align-items:flex-start;gap:.75rem;padding:.85rem .6rem .85rem .95rem;background:#fff;border:1px solid var(--line,#e3e8f0);border-left:4px solid var(--brand,#2457e6);border-radius:14px;box-shadow:0 24px 60px -24px rgba(11,27,51,.4);animation:alert-in .3s ease}
+.alert-toast.is-report{border-left-color:#f59e0b}
+.alert-toast.is-message{border-left-color:var(--teal,#0e9f8e)}
+.alert-toast.is-leaving{animation:alert-out .2s ease forwards}
+.alert-toast-icon{display:grid;place-items:center;flex:none;width:36px;height:36px;border-radius:10px;background:var(--brand-50,#eef3ff);color:var(--brand,#2457e6)}
+.alert-toast.is-report .alert-toast-icon{background:#fff4e0;color:#b45309}
+.alert-toast.is-message .alert-toast-icon{background:#e6f7f4;color:var(--teal,#0e9f8e)}
+.alert-toast-icon svg{width:20px;height:20px}
+.alert-toast-body{flex:1;min-width:0;line-height:1.4}
+.alert-toast-body strong{display:block;color:var(--ink,#0b1b33);font-size:.95rem}
+.alert-toast-body span{display:block;color:var(--muted,#64748b);font-size:.86rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.alert-toast-open{align-self:center;flex:none;padding:.4rem .85rem;border:0;border-radius:999px;background:var(--brand,#2457e6);color:#fff;font:inherit;font-weight:700;font-size:.8rem;text-decoration:none;cursor:pointer}
+.alert-toast-open:hover{background:var(--brand-600,#1b45c2);color:#fff}
+.alert-toast-close{flex:none;display:grid;place-items:center;width:30px;height:30px;border:0;border-radius:8px;background:transparent;color:var(--muted,#64748b);cursor:pointer}
+.alert-toast-close:hover{background:#f1f4f9;color:var(--ink,#0b1b33)}
+.alert-toast-close svg{width:16px;height:16px}
+.alert-bell{position:fixed;right:1rem;bottom:1rem;z-index:96;display:grid;place-items:center;width:46px;height:46px;border:1px solid var(--line,#e3e8f0);border-radius:50%;background:#fff;color:var(--ink,#0b1b33);box-shadow:0 10px 28px -10px rgba(11,27,51,.3);cursor:pointer}
+.alert-bell:hover{border-color:var(--brand,#2457e6);color:var(--brand,#2457e6)}
+.alert-bell svg{width:22px;height:22px}
+.alert-panel{position:fixed;right:1rem;bottom:4.2rem;z-index:97;width:min(300px,calc(100% - 2rem));padding:1rem;background:#fff;border:1px solid var(--line,#e3e8f0);border-radius:14px;box-shadow:0 24px 60px -24px rgba(11,27,51,.4)}
+.alert-panel[hidden]{display:none}
+.alert-panel-title{display:block;margin-bottom:.6rem;color:var(--ink,#0b1b33)}
+.alert-panel .alert-row{display:flex;align-items:center;gap:.6rem;margin:.4rem 0;font-weight:600;font-size:.9rem;cursor:pointer}
+.alert-panel input[type=checkbox]{width:18px;height:18px;padding:0;margin:0;accent-color:var(--brand,#2457e6)}
+.alert-note{display:block;margin:.5rem 0;color:var(--muted,#64748b);font-size:.8rem}
+.alert-test{width:100%;padding:.5rem;border:1px solid var(--line,#e3e8f0);border-radius:10px;background:#fff;color:var(--ink,#0b1b33);font:inherit;font-weight:600;font-size:.85rem;cursor:pointer}
+.alert-test:hover{border-color:var(--brand,#2457e6)}
+@keyframes alert-in{from{opacity:0;transform:translateY(12px) scale(.98)}}
+@keyframes alert-out{to{opacity:0;transform:translateX(24px)}}
+@media (prefers-reduced-motion:reduce){.alert-toast,.alert-toast.is-leaving{animation:none}}
